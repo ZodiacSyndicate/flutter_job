@@ -14,7 +14,8 @@ class NavigationBarState extends State<NavigationBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.assignment_ind), title: Text('牛人')),
         BottomNavigationBarItem(
             icon: Icon(Icons.business), title: Text('business')),
         BottomNavigationBarItem(

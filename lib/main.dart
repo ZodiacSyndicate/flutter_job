@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_job/widgets/bottom_navigation.dart';
+import 'package:flutter_job/containers/register.dart';
 
 enum Actions { Increment, Decrement }
 
@@ -36,55 +37,48 @@ class FlutterReudxApp extends StatelessWidget {
     return StoreProvider(
       store: store,
       child: MaterialApp(
-        theme: ThemeData.dark(),
+        initialRoute: '/',
+        routes: {
+          '/register': (context) => Register(),
+          '/': (context) => Home()
+        },
+        theme: ThemeData.light(),
         title: title,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text(title),
-          ),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('You hav pushed the button this many times'),
-                StoreConnector<int, String>(
-                  converter: (store) => store.state.toString(),
-                  builder: (context, count) {
-                    return Text(
-                      count,
-                      style: Theme.of(context).textTheme.display1,
-                    );
-                  },
-                )
-              ],
-            ),
-          ),
-          bottomNavigationBar: NavigationBar(),
-          persistentFooterButtons: <Widget>[
-            StoreConnector<int, VoidCallback>(
-              converter: (store) {
-                return () => store.dispatch(Actions.Increment);
-              },
-              builder: (context, callback) {
-                return FlatButton(
-                  onPressed: callback,
-                  child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('hehe'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('You hav pushed the button this many times'),
+            StoreConnector<int, String>(
+              converter: (store) => store.state.toString(),
+              builder: (context, count) {
+                return Text(
+                  count,
+                  style: Theme.of(context).textTheme.display1,
                 );
               },
-            ),
-            StoreConnector<int, VoidCallback>(
-              converter: (store) {
-                return () => store.dispatch(Actions.Decrement);
-              },
-              builder: (context, callback) {
-                return FlatButton(
-                  onPressed: callback,
-                  child: Icon(Icons.line_style),
-                );
-              },
-            ),
+            )
           ],
         ),
+      ),
+      bottomNavigationBar: NavigationBar(),
+      floatingActionButton: FlatButton(
+        child: Text('注册'),
+        onPressed: () {
+          Navigator.pushNamed(context, '/register');
+        },
       ),
     );
   }
