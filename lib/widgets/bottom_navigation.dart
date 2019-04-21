@@ -22,6 +22,7 @@ class NavigationBarState extends State<NavigationBar> {
             icon: Icon(Icons.school), title: Text('school')),
       ],
       onTap: _onItemTapped,
+      currentIndex: _index,
     );
   }
 
@@ -29,10 +30,5 @@ class NavigationBarState extends State<NavigationBar> {
     setState(() {
       _index = index;
     });
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return Center(
-        child: Text(_index.toString()),
-      );
-    }));
   }
 }
