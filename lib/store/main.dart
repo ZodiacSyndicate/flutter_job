@@ -1,5 +1,5 @@
-import './user.dart';
-import './navigate.dart';
+import 'package:flutter_job/store/user.dart';
+import 'package:flutter_job/store/navigate.dart';
 
 class AppState {
   final NavbarState navbar;

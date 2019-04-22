@@ -1,8 +1,8 @@
 import 'package:redux_thunk/redux_thunk.dart' show ThunkAction;
 import 'package:redux/redux.dart' show Store;
 import 'package:flutter_job/api/api.dart' show Request;
-import 'navigate.dart';
-import '../utils/utils.dart';
+import 'package:flutter_job/store/navigate.dart';
+import 'package:flutter_job/utils/utils.dart';
 
 enum UserActionTypes {
   REGISTER,
@@ -46,6 +46,9 @@ class AuthSuccess {
 }
 
 UserState userReducer(UserState state, action) {
+  if (action is ChangeIndex) {
+    return state;
+  }
   switch (action.type) {
     case UserActionTypes.REGISTER:
       return state;

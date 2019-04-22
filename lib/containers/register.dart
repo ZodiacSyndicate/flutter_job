@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_job/api/api.dart';
-import 'package:flutter_job/store/user.dart' show register, UserState;
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_job/api/api.dart';
+import 'package:flutter_job/store/main.dart' show AppState;
+import 'package:flutter_job/store/user.dart' show register;
 
 class Register extends StatefulWidget {
   Register({Key key}) : super(key: key);
@@ -24,7 +25,7 @@ class RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<UserState, Callback>(
+    return StoreConnector<AppState, Callback>(
       converter: (store) {
         return ({
           String username,

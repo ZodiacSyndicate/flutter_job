@@ -5,14 +5,14 @@ import 'package:redux_thunk/redux_thunk.dart' show thunkMiddleware;
 import 'package:redux_logging/redux_logging.dart';
 import 'package:logging/logging.dart';
 
-import './containers/chat.dart';
-import './containers/info.dart';
-import './containers/userlist.dart';
-import './widgets/bottom_navigation.dart';
-import './containers/register.dart';
-import './store/main.dart' show AppState, appStateReducer;
-import './store/user.dart' show UserState;
-import './store/navigate.dart' show NavbarState;
+import 'package:flutter_job/containers/chat.dart';
+import 'package:flutter_job/containers/info.dart';
+import 'package:flutter_job/containers/userlist.dart';
+import 'package:flutter_job/widgets/bottom_navigation.dart';
+import 'package:flutter_job/containers/register.dart';
+import 'package:flutter_job/store/main.dart' show AppState, appStateReducer;
+import 'package:flutter_job/store/user.dart' show UserState;
+import 'package:flutter_job/store/navigate.dart' show NavbarState;
 
 void main() {
   final logger = Logger('Redux logger');
@@ -66,7 +66,7 @@ class Home extends StatelessWidget {
             title: Text('hehe'),
           ),
           body: _widgetOptions.elementAt(index),
-          bottomNavigationBar: NavigationBar(),
+          bottomNavigationBar: NavigationBar(index),
           floatingActionButton: FlatButton(
             child: Text('注册'),
             onPressed: () {

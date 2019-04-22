@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_job/store/main.dart' show AppState;
-import '../widgets/boss_info.dart';
-import '../widgets/genius_info.dart';
+import 'package:flutter_job/widgets/boss_info.dart';
+import 'package:flutter_job/widgets/genius_info.dart';
 
 class Info extends StatelessWidget {
   @override
